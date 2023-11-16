@@ -51,9 +51,10 @@ android {
 
 dependencies {
 
+    implementation("com.airbnb.android:lottie-compose:4.0.0")
     debugImplementation("androidx.compose.ui:ui-tooling:1.5.2")
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.2")
-    implementation ("androidx.navigation:navigation-compose:2.4.0-alpha10")
+    implementation ("androidx.navigation:navigation-compose:2.4.2")
     implementation ("com.airbnb.android:lottie:3.4.0")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")

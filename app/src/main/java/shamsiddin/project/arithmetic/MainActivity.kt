@@ -25,13 +25,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.airbnb.lottie.model.content.CircleShape
+import shamsiddin.project.arithmetic.navigation.NavGraph
+import shamsiddin.project.arithmetic.navigation.Screens
 import shamsiddin.project.arithmetic.ui.theme.ArithmeticTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
+
+            val navController = rememberNavController()
+            NavGraph(navController = navController)
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -41,11 +48,12 @@ class MainActivity : ComponentActivity() {
             ) {
                 // "New Game" button
                 Button(onClick = {
-                    startActivity(Intent(this@MainActivity, NewGameActivity::class.java)) }, colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF5AE3AA)
+                   navController.navigate(Screens.NewActivity.route) },
+                    colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF263539)
                 ),
                     shape = RoundedCornerShape(20.dp)) {
-                    Text(text = "New Game", color = Color(0xFF263539))
+                    Text(text = "New Game", color = Color(0xFF5AE3AA))
                 }
 
                 // Spacer to add some separation between buttons
@@ -54,13 +62,14 @@ class MainActivity : ComponentActivity() {
                 // "Records" button
                 Button(onClick = {
 
-                    startActivity(Intent(this@MainActivity, RecordsActivity::class.java))
+                    navController.navigate(Screens.Records.route)
 
                 }, colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF5AE3AA)
+                    containerColor = Color(0xFF1B3134)
                 ), shape = RoundedCornerShape(20.dp)) {
-                    Text(text = "Records", color = Color(0xFF1B3134))
+                    Text(text = "Records", color = Color(0xFF5AE3AA))
                 }
+
 
 
             }
